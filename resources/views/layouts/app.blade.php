@@ -38,16 +38,36 @@
                 <a href="{{ route('home') }}">
                     <x-application-logo />
                 </a>
-                <nav class="space-x-4 ">
-          
+                <nav class="space-x-4 flex gap-2 justify-end items-center">
+
                     @guest
+                        {{-- register --}}
+                        <a href="{{ route('register') }}"
+                            class="text-blue-700 text-sm uppercase font-bold hover:text-yellow-400 transition">
+                            Register
+                        </a>
                         <a href="{{ route('login') }}"
                             class="py-2 px-5 bg-blue-600 text-white uppercase text-sm rounded-md font-bold">
                             Login
                         </a>
 
+
                     @endguest
                     @auth
+                        <a href="{{ route('profile.edit') }}"
+                            class="text-blue-700 text-sm uppercase font-bold hover:text-yellow-400 transition">My
+                            account</a>
+
+                        {{-- logout --}}
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button class="text-red-700 text-sm uppercase font-bold hover:text-yellow-400 transition">
+                                <div class="flex items-center gap-2">
+                                    Logout
+                                    <iconify-icon icon="material-symbols:logout"></iconify-icon>
+                                </div>
+                            </button>
+                        </form>
                         <a href="{{ route('dashboard') }}"
                             class="py-2 px-5 bg-blue-600 text-white uppercase text-sm rounded-md font-bold">
                             Dashboard

@@ -9,7 +9,7 @@
         <p class="mt-2 text-lg">
             Hi {{ auth()->user()->name }}, here are your flight bookings.
         </p>
-        <div class="bg-white shadow-md rounded my-6">
+        <div class="bg-white shadow-md rounded my-6 ">
 
             <table class="w-full table-auto">
                 <thead>
@@ -36,9 +36,9 @@
                             <td class="px-6 py-4">
                                 <a href="{{ route('order.view', ['id' => $order->id]) }}"
                                     class="flex items-center justify-center gap-2 bg-red-500 text-white py-1 px-4 rounded-full hover:bg-red-600 ">
-                                  
-                                        View <iconify-icon icon="solar:eye-broken"></iconify-icon>
-                                    
+
+                                    View <iconify-icon icon="solar:eye-broken"></iconify-icon>
+
                                 </a>
 
                             </td>
@@ -46,7 +46,10 @@
                     @endforeach
                 </tbody>
             </table>
-
+           
+        </div>
+        <div class="mt-10 text-center">
+            <a href="{{ route('home') }}" class="btn">Order More</a>
         </div>
     </div>
 @endsection
